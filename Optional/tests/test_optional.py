@@ -12,6 +12,11 @@ class TestOptional(unittest.TestCase):
         with self.assertRaises(Exception):
             opt.get()
 
+    def test_of_noneable(self):
+        opt = optional.Optional.of('hello')
+        assert opt.get() == 'hello'
+
+
 
 if __name__ == '__main__':
     unittest.main()

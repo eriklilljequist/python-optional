@@ -16,7 +16,7 @@ class Optional:
         return Optional(obj)
 
     @classmethod
-    def OfNoneAble(cls, obj):
+    def of_noneable(cls, obj):
         return cls.of(obj) if obj != None else cls.empty()
 
     def is_present(self):
@@ -31,6 +31,7 @@ class Optional:
     def if_present(self, consumer):
         if self.is_present():
             return consumer(self._obj)
+        return Optional.empty()
 
     def or_else_get(self, consumer):
         return self._obj if self.is_present else consumer()
