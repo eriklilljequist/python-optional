@@ -5,7 +5,7 @@ class Optional:
     _obj = None
 
     def __init__(self, obj):
-        _obj = obj
+        self._obj = obj
 
     @classmethod
     def empty(cls):
