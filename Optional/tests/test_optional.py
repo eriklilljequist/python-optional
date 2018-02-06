@@ -7,6 +7,11 @@ class TestOptional(unittest.TestCase):
         opt = optional.Optional.of('hello')
         assert opt.get() == 'hello'
 
+    def test_get_empty(self):
+        opt = optional.Optional.empty()
+        with self.assertRaises(Exception):
+            opt.get()
+
 
 if __name__ == '__main__':
     unittest.main()

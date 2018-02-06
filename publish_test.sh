@@ -1,0 +1,1 @@
+twine upload --repository-url testpypi dist/*
