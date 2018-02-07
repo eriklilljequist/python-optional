@@ -7,4 +7,10 @@ pytest Optional/tests\
   --cov-report=term\
   --verbose
 
-pylint Optional/src/optional
+pylint Optional/optional
+
+echo 'View coverage in browser?'
+read yn
+if echo $yn | grep -iq ^y ; then
+  xdg-open htmlcov/index.html
+fi

@@ -1,5 +1,9 @@
 
 
+class InvalidOperationException(Exception):
+    pass
+
+
 class Optional:
 
     _obj = None
@@ -39,22 +43,18 @@ class Optional:
     def or_else(self, other):
         return self._obj if self.is_present else other
 
-    def or_else_throw(self, exception):
+    def or_else_throw(self, exception=InvalidOperationException()):
         if self.is_present():
             return self._obj
         raise exception
 
     def __eq__(self, other):
-        if other != None:
+        if isinstance(other, Optional):
             if (not other.is_present()) & (not self.is_present()):
                 return True
-            if other.is_present() & self.is_present() & other.get().equals(self.get()):
+            if other.is_present() & self.is_present() & (other.get() == self.get()):
                 return True
         return False
 
     def __hash__(self):
         return self.get().hash() if self.is_present else 0
-
-
-class InvalidOperationException(Exception):
-    pass

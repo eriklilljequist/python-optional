@@ -5,4 +5,4 @@ disable=C0111, #docstring
 
 
 [MASTER]
-init-hook='from pylint.config import find_pylintrc; import sys;import os; sys.path.append(os.path.dirname(find_pylintrc()) + "/Optional/src/optional")'
+init-hook='from pylint.config import find_pylintrc; import sys;import os; sys.path.append(os.path.dirname(find_pylintrc()) + "/Optional/optional")'
